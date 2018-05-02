@@ -24,8 +24,9 @@ public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
           registry.addHandler(marcoHandler_2(),"/marco2")
-                  .addInterceptors(webSocketHandshakeInterceptor())
-                  .setAllowedOrigins("*");
+                  .addInterceptors(webSocketHandshakeInterceptor()) //声明拦截器
+                  .setAllowedOrigins("*") //声明允许访问的主机列表
+                  .withSockJS(); //声明启用SockJS功能
     }
 
 
