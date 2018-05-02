@@ -6,6 +6,7 @@ if (window.WebSocket) {
 }
 
 var url = 'ws://localhost:8080/marco2';
+var count = 0;
 var sock;
 if ('WebSocket' in window) {
     sock = new WebSocket(url);
@@ -16,15 +17,13 @@ if ('WebSocket' in window) {
 }
 
 
-var count = 0;
-
 sock.onopen = function (ev) {
     console.log("正在建立连接...");
     sayMarco();
 };
 
 sock.onmessage = function (ev) {
-    console.log("接收并处理消息..." + ev.data);
+    console.log("接收并处理消息：" + ev.data);
     if (count == 10) {
         sock.close();
     }

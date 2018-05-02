@@ -13,8 +13,8 @@ import org.springframework.web.socket.WebSocketSession;
  */
 @Controller
 public class MarcoHandler_1 implements WebSocketHandler {
-    private static final Logger LOGGER = LoggerFactory.getLogger(MarcoHandler_1.class);
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(MarcoHandler_1.class);
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {

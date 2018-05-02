@@ -1,6 +1,8 @@
 package org.springframework.websocket.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
@@ -11,6 +13,7 @@ import org.springframework.websocket.interceptor.WebSocketHandshakeInterceptor;
  * Created by XiuYin.Cui on 2018/5/1.
  */
 
+@Configuration
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
 
@@ -21,7 +24,8 @@ public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
           registry.addHandler(marcoHandler_2(),"/marco2")
-                  .addInterceptors(webSocketHandshakeInterceptor());
+                  .addInterceptors(webSocketHandshakeInterceptor())
+                  .setAllowedOrigins("*");
     }
 
 

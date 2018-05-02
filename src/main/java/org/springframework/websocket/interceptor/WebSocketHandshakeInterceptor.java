@@ -14,16 +14,15 @@ import java.util.Map;
  * Created by XiuYin.Cui on 2018/5/1.
  */
 public class WebSocketHandshakeInterceptor extends HttpSessionHandshakeInterceptor {
-    private static final Logger logger = LoggerFactory.getLogger(WebSocketHandshakeInterceptor.class);
 
+    private static final Logger logger = LoggerFactory.getLogger(WebSocketHandshakeInterceptor.class);
 
     @Override
     public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Map<String, Object> attributes) throws Exception {
         logger.info("在处理逻辑前 拦截webSocket！");
         // 解决The extension [x-webkit-deflate-frame] is not supported问题
         if (request.getHeaders().containsKey("Sec-WebSocket-Extensions")) {
-            request.getHeaders().set("Sec-WebSocket-Extensions",
-                    "permessage-deflate");
+            request.getHeaders().set("Sec-WebSocket-Extensions", "permessage-deflate");
         }
         return super.beforeHandshake(request, response, wsHandler, attributes);
     }
