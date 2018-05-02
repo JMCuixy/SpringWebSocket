@@ -5,17 +5,21 @@ if (window.WebSocket) {
     console.log('This browser does not supports WebSocket');
 }
 
-var url = 'ws://localhost:8080/marco2';
-var count = 0;
+/*--正文--*/
 var sock;
-if ('WebSocket' in window) {
-    sock = new WebSocket(url);
-} else if ('MozWebSocket' in window) {
-    sock = new MozWebSocket(url);
-} else {
-    sock = new SockJS(url);
-}
+var count = 0;
 
+/*WebSocket*/
+//var url = 'ws://localhost:8080/marco2';
+//sock = new WebSocket(url);
+
+/*MozWebSocket*/
+//var url = 'ws://localhost:8080/marco2';
+//sock = new MozWebSocket(url);
+
+/*SockJS*/
+var url = 'http://localhost:8080/marco2';
+sock = new SockJS(url);
 
 sock.onopen = function (ev) {
     console.log("正在建立连接...");
