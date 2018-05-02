@@ -31,7 +31,7 @@
         <!-- 日志文件的格式 -->
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%-5p [%d][%mdc{mdc_userId}] %C:%L - %m %n</pattern>
-            <charset>utf-8</charset>
+            <charset>GBK</charset>
         </encoder>
         <!-- 此日志文件只记录error级别的 -->
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
@@ -53,7 +53,7 @@
         <append>true</append>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%-5p [%d][%mdc{mdc_userId}] %C:%L - %m %n</pattern>
-            <charset>utf-8</charset>
+            <charset>GBK</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>WARN</level>
@@ -74,7 +74,7 @@
         <append>true</append>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%-5p [%d][%mdc{mdc_userId}] %C:%L - %m %n</pattern>
-            <charset>utf-8</charset>
+            <charset>GBK</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
@@ -96,7 +96,7 @@
         <append>true</append>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%-5p [%d][%mdc{mdc_userId}] %C:%L - %m %n</pattern>
-            <charset>utf-8</charset>
+            <charset>GBK</charset>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>DEBUG</level>
@@ -109,7 +109,7 @@
         <Target>System.out</Target>
         <encoder>
             <pattern>%-5p [%d][%mdc{mdc_userId}] %C:%L - %m %n</pattern>
-            <charset>utf-8</charset>
+            <charset>GBK</charset>
         </encoder>
         <!-- 此日志appender是为开发使用，只配置最底级别，控制台输出的日志级别是大于或等于此级别的日志信息 -->
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">

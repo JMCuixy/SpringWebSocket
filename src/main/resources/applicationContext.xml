@@ -39,6 +39,9 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <!--默认跳转到首页 -->
+    <mvc:view-controller path="/" view-name="index"/>
+
     <websocket:handlers>
         <websocket:mapping handler="marcoHandler_1" path="/marco1"/>
     </websocket:handlers>
