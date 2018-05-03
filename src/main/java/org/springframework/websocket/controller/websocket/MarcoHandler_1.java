@@ -16,6 +16,7 @@ public class MarcoHandler_1 implements WebSocketHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MarcoHandler_1.class);
 
+
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         LOGGER.info("WebSocket 连接建立......");
