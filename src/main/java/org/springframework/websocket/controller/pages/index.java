@@ -16,4 +16,19 @@ public class index {
         return "index";
     }
 
+    @RequestMapping(value = "/indexSockJS", method = {RequestMethod.GET, RequestMethod.POST})
+    public String indexSockJS() {
+        return "indexSockJS";
+    }
+
+    @RequestMapping(value = "/indexWs", method = {RequestMethod.GET, RequestMethod.POST})
+    public String indexWs() {
+        return "indexWs";
+    }
+
+    @RequestMapping(value = "/indexStomp", method = {RequestMethod.GET, RequestMethod.POST})
+    public String indexStomp() {
+        return "indexStomp";
+    }
+
 }

@@ -8,10 +8,9 @@ if (window.WebSocket) {
 /*--正文--*/
 var count = 0;
 
-/*WebSocket*/
-var url = 'ws://localhost:8080/marco2';
-var sock = new WebSocket(url);
-
+/*SockJS*/
+var url = 'http://localhost:8080/marcoSockJS';
+var sock = new SockJS(url);
 
 sock.onopen = function (ev) {
     console.log("正在建立连接...");

@@ -25,8 +25,12 @@ public class WebSocketConfig implements WebSocketConfigurer {
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
           registry.addHandler(marcoHandler_2(),"/marco2")
                   .addInterceptors(webSocketHandshakeInterceptor()) //声明拦截器
-                  .setAllowedOrigins("*") //声明允许访问的主机列表
-                  .withSockJS(); //声明启用SockJS功能
+                  .setAllowedOrigins("*"); //声明允许访问的主机列表
+
+          //声明启用SockJS连接，如果前端还用 new WebSocket(url); 会报：Error during WebSocket handshake: Unexpected response code: 200
+          registry.addHandler(marcoHandler_2(), "/marcoSockJS")
+                  .setAllowedOrigins("*")
+                  .withSockJS();
     }
 
 
