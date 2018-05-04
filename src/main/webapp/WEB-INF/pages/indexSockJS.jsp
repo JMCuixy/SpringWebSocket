@@ -4,6 +4,6 @@
 <script type="text/javascript" src="/js/marcoSockJS.js" charset="UTF-8"></script>
 <html>
 <body>
-<h2>Hello WebSocket!</h2>
+<h2>Hello SockJS!</h2>
 </body>
 </html>
