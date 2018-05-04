@@ -1,10 +1,3 @@
-//检查浏览器是否支持WebSocket
-if (window.WebSocket) {
-    console.log('This browser supports WebSocket');
-} else {
-    console.log('This browser does not supports WebSocket');
-}
-
 /*--正文--*/
 var count = 0;
 
