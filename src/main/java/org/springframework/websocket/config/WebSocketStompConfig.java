@@ -87,14 +87,14 @@ public class WebSocketStompConfig extends AbstractWebSocketMessageBrokerConfigur
                 //1、判断是否首次连接
                 if (StompCommand.CONNECT.equals(accessor.getCommand())){
                     //2、判断用户名和密码
-                    String username = accessor.getNativeHeader("username").get(0);
-                    String password = accessor.getNativeHeader("password").get(0);
+                    String name = accessor.getNativeHeader("username").get(0);
+                    String pas = accessor.getNativeHeader("password").get(0);
 
-                    if ("admin".equals(username) && "admin".equals(password)){
+                    if ("admin".equals(name) && "admin".equals(pas)){
                         Principal principal = new Principal() {
                             @Override
                             public String getName() {
-                                return userName;
+                                return name;
                             }
                         };
                         accessor.setUser(principal);

@@ -29,7 +29,7 @@ public class MarcoHandler_1 implements WebSocketHandler {
 
     @Override
     public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
-       exception.printStackTrace();
+        exception.printStackTrace();
     }
 
     @Override

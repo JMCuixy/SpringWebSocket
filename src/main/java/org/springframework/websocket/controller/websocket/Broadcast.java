@@ -29,6 +29,7 @@ public class Broadcast {
 
     /**
      * 广播消息，不指定用户，所有订阅此的用户都能收到消息
+     *
      * @param shout
      */
     @MessageMapping("/broadcastShout")
@@ -39,26 +40,26 @@ public class Broadcast {
     /**
      * 为特定用户指定目的地，最后消息会被发布在 /user/queue/shouts
      *
-     * @param shout 消息对象
-     * @param stompHeaderAccessor 用户认证信息
+     * @param shout    消息对象
+     * @param accessor 用户认证信息
      */
     @MessageMapping("/singleShout")
-    public void singleUser(Shout shout, StompHeaderAccessor stompHeaderAccessor) {
+    public void singleUser(Shout shout, StompHeaderAccessor accessor) {
         String message = shout.getMessage();
         LOGGER.info("接收到消息：" + message);
-        Principal user = stompHeaderAccessor.getUser();
-        simpMessageSendingOperations.convertAndSendToUser(user.getName(), "/queue/shouts", shout);
+        Principal principal = accessor.getUser();
+        simpMessageSendingOperations.convertAndSendToUser(principal.getName(), "/queue/shouts", shout);
     }
 
     /**
      * 为特定用户指定目的地，最后消息会被发布在  /user/queue/notifications-username
      *
      * @param principal 用户认证信息
-     * @param shout 消息对象
+     * @param shout     消息对象
      */
     @MessageMapping("/shout")
     @SendToUser("/queue/notifications")
-    public Shout userStomp(Principal principal, Shout shout) {
+    public Shout userStomp(Shout shout, Principal principal) {
         String name = principal.getName();
         String message = shout.getMessage();
         LOGGER.info("认证的名字是：{}，收到的消息是：{}", name, message);
@@ -68,16 +69,16 @@ public class Broadcast {
 
     /**
      * 消息异常处理
+     *
      * @param t
      * @return
      */
     @MessageExceptionHandler
     @SendToUser("/queue/errors")
-    public Exception handleExceptions(Exception t){
+    public Exception handleExceptions(Exception t) {
         t.printStackTrace();
         return t;
     }
-
 
 
 }

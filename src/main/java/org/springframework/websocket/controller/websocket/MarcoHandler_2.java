@@ -30,7 +30,7 @@ public class MarcoHandler_2 extends AbstractWebSocketHandler {
     }
 
     @Override
-    public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus){
+    public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) {
         LOGGER.info("WebSocket 连接关闭......");
     }
 
